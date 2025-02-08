@@ -1,2 +1,2 @@
-#här testar jag git
-#igen igen igen
+Dag 1
+Detta ska bli en app för att tävla i nummegissning. Målet är att uppdatera programmet medans jag lär mig. 
