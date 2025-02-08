@@ -1,2 +1,6 @@
 Dag 1
 Detta ska bli en app för att tävla i nummegissning. Målet är att uppdatera programmet medans jag lär mig. 
+
+Har fått det att fungera okej. Nästa sak att göra är att väga fler val av nummer till högre poäng och fler liv. Tänker spontant att multiplicera score och guesses med någon fraktion av highest. Vi får se.
+Ser också riktigt risigt ut, tänker mig att göra om detta med funktioner i ett senare läge.
+
