@@ -7,14 +7,14 @@ score = 0
 guesses = 5
 
 #to keep the loop going
-is_true = True
+
 final_score = 0
 final_guesses = 0
 print(f"Bra! Nu får du gissa på ett nummer mellan 1 och {highest}")
 
 #while is_true == True: keeps my loop going
 
-while is_true == True:
+while True:
     guess = int(input("Skriv din gissning här: "))
     print(str(answer))
     if guess == answer:
