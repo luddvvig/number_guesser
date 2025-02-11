@@ -1,5 +1,30 @@
 import random
 
+def read_highscore(filename="highscore.txt"):
+    try:
+        with open("highscore.txt", "r") as f:
+            highscore = [int(line.strip()) for line in f]
+            highscore.sort(reverse=True)
+            return highscore
+    except FileNotFoundError:
+        return []  # Return empty list if file not found
+    except ValueError: #Handle if there is a non-int in the file
+        print("Invalid highscore file format. Starting with empty highscores.")
+        return []
+
+def append_highscore(score, filename="highscore.txt", max_scores=5):
+    highscore = read_highscore(filename)
+
+    highscore.append(score)
+    highscore.sort(reverse=True)
+    highscore = highscore[:max_scores]
+
+    with open("highscore.txt", "w") as f:
+        for score in highscore:
+            f.write((str(score)) + "\n")
+
+
+
 def starter_input():
     global playing_range, name
     name = input("Enter player name: ")
@@ -17,7 +42,7 @@ def over_under(answer, guess):
 
 def game(playing_range, name):
     answer = int(random.randrange(1, playing_range))
-    global final_guesses, final_score
+    global final_guesses, final_score, score
     score = 0
     guesses = 5 
     final_score = 0
@@ -53,6 +78,7 @@ def game(playing_range, name):
                 guesses = 5
             else:
                 break
+    return score
             
 def play_again():
     while True:
@@ -70,6 +96,11 @@ def play_again():
 def main():
     starter_input()
     game(playing_range, name)
+    append_highscore(final_score)
+    highscores = read_highscore()
+    print("\nHigh Scores:")
+    for i, score in enumerate(highscores):
+        print(f"{i+1}. {score}")
 
 if __name__ == "__main__":
     main()
