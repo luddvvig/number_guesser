@@ -7,6 +7,14 @@ def starter_input():
     playing_range = int(input("Enter the range you want to play in: "))
     return playing_range, name
 
+def over_under(answer, guess):
+    if guess < answer:
+        print("The answer is higher")
+    elif guess > answer:
+        print("The answer is lower")
+    else:
+        print("TError")
+
 def game(playing_range, name):
     answer = int(random.randrange(1, playing_range))
     global final_guesses, final_score
@@ -15,7 +23,6 @@ def game(playing_range, name):
     final_score = 0
     final_guesses = 0
     print(f"Great {name} Now you can guess a number between 1 and {playing_range}")
-
 
     
     while True:
@@ -30,6 +37,7 @@ def game(playing_range, name):
             answer = random.randint(1, playing_range)
         elif guess != answer:
             print("Wrong! You lost a life.")
+            over_under(answer, guess)
             guesses -= 1
             final_guesses += 1
             print(f"{name}s guesses left: {guesses}")
