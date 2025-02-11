@@ -15,6 +15,8 @@ def game(playing_range, name):
     final_score = 0
     final_guesses = 0
     print(f"Great {name} Now you can guess a number between 1 and {playing_range}")
+
+
     
     while True:
         guess = int(input("Enter your guess here: "))
@@ -46,7 +48,7 @@ def game(playing_range, name):
             
 def play_again():
     while True:
-        again = input("Vill du spela igen? Y/N: ").lower()
+        again = input("Do you want to play again? Y/N: ").lower()
         if again == "y":
             return True
         elif again == "n":
