@@ -41,14 +41,16 @@ def over_under(answer, guess):
         print("TError")
 
 def game(playing_range, name):
-    answer = int(random.randrange(1, playing_range))
-    global final_guesses, final_score, score
-    score = 0
-    guesses = 5 
-    final_score = 0
-    final_guesses = 0
-    print(f"Great {name} Now you can guess a number between 1 and {playing_range}")
-
+    try:
+        answer = int(random.randrange(1, playing_range))
+        global final_guesses, final_score, score
+        score = 0
+        guesses = 5 
+        final_score = 0
+        final_guesses = 0
+        print(f"Great {name} Now you can guess a number between 1 and {playing_range}")
+    except ValueError:
+        print("Invalid range, please enter a number")
     
     while True:
         guess = int(input("Enter your guess here: "))
